@@ -1,29 +1,129 @@
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](/packages/create-rainbowkit).
 
-## Getting Started
 
-First, run the development server:
+```markdown
+# 🎨 FaceNFT dApp
+
+A full-stack NFT dApp built with **Next.js**, **RainbowKit**, **Wagmi**, and **viem**, allowing users to:
+
+- 🔗 Connect their wallet
+- 💸 Send native ETH
+- 🧙‍♂️ Mint NFTs via `safeMint`
+- 🔍 Read NFT metadata via `tokenURI`
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js, TailwindCSS
+- **Wallet Integration**: RainbowKit
+- **Blockchain Interaction**: Wagmi + viem
+- **Smart Contract**: ERC721-compatible NFT with `safeMint`
+
+---
+
+## 📁 Project Structure
+
+```
+/pages
+  ── index.tsx         # Main dApp UI
+  
+/lib
+  ── faceNFT.ts        # NFT Contract ABI
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/ShakibKamran/Mint-NFT-Onchain.git
+cd nft_minton_ipfs
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure RainbowKit & Wagmi
+
+Update your chain & provider settings in `_app.tsx` or `wagmi.config.ts` (if modularized).
+
+### 4. Add the Smart Contract ABI
+
+Put your contract ABI JSON inside `/lib/faceNFT.ts`:
+
+```ts
+export const FACE_NFT_ABI = [ /* ABI here */ ];
+```
+
+### 5. Run the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🧪 Features
 
-## Learn More
+### ✅ Wallet Connection
 
-To learn more about this stack, take a look at the following resources:
+Users can connect via Metamask, WalletConnect, etc.
 
-- [RainbowKit Documentation](https://rainbowkit.com) - Learn how to customize your wallet connection flow.
-- [wagmi Documentation](https://wagmi.sh) - Learn how to interact with Ethereum.
-- [Next.js Documentation](https://nextjs.org/docs) - Learn how to build a Next.js application.
+### ✅ ETH Transfer
 
-You can check out [the RainbowKit GitHub repository](https://github.com/rainbow-me/rainbowkit) - your feedback and contributions are welcome!
+Send ETH to any address using `sendTransaction`.
 
-## Deploy on Vercel
+### ✅ NFT Minting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Call `safeMint(address, tokenURI)` from your deployed ERC721 contract.
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### ✅ Metadata Reading
+
+Reads `tokenURI(tokenId)` and displays the string.
+
+---
+
+## 📸 UI Screenshots
+
+> _Add screenshots or GIFs here for better preview_
+
+---
+
+## 📝 Example `.env.local` (if needed)
+
+```env
+# Only if you're using Alchemy/Infura for provider config
+NEXT_PUBLIC_ALCHEMY_KEY=your-alchemy-key
+```
+
+---
+
+## 📄 Smart Contract Reference
+
+Ensure your contract has this function:
+
+```solidity
+function safeMint(address to, string memory uri) public;
+```
+
+---
+
+## 📬 Contact / Feedback
+
+Have ideas or issues? Feel free to open an [Issue](https://github.com/ShakibKamran/Mint-NFT-Onchain.git/issues) or reach out!
+
+---
+
+## 📜 License
+
+MIT © [ShakibKamran] https://github.com/ShakibKamran/Mint-NFT-Onchain.git)
+```
+
+---
+
+Would you like me to generate a matching `faceNFT.ts` ABI stub or help you deploy this to Vercel next?
